@@ -1,0 +1,62 @@
+config:
+  credentials: []
+  project_repos:
+    github.com/Deltares/FloodAdapt:
+      branch: main
+      repo: https://github.com/Deltares/FloodAdapt
+    github.com/EOSC-synergy/sqaaas-tooling:
+      branch: release/1.7.11
+      repo: https://github.com/EOSC-synergy/sqaaas-tooling
+environment:
+  JPL_DOCKERFORCEBUILD: enabled
+  JPL_KEEPGOING: enabled
+sqa_criteria:
+  QC.Acc:
+    repos:
+      github.com/Deltares/FloodAdapt git:
+        commands:
+        - /usr/bin/env sh .sqa/script.clammy-tan-toucan.sh
+        container: qc.acc_trippy-crimson-ostrich
+  QC.Doc:
+    repos:
+      github.com/Deltares/FloodAdapt find_doc_files.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.wiggy-charcoal-beetle.sh
+        container: qc.doc_chewy-olivine-meerkat
+      github.com/Deltares/FloodAdapt git:
+        commands:
+        - /usr/bin/env sh .sqa/script.stuffy-sangria-mayfly.sh
+        container: qc.doc_skimpy-bronze-koala
+      github.com/Deltares/FloodAdapt markdownlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.jumpy-indigo-devil.sh
+        container: qc.doc_clammy-emerald-chinchilla
+  QC.Lic:
+    repos:
+      github.com/Deltares/FloodAdapt licensee:
+        commands:
+        - /usr/bin/env sh .sqa/script.goopy-seashell-budgerigar.sh
+        container: qc.lic_greasy-apricot-vole
+  QC.Sec:
+    repos:
+      github.com/Deltares/FloodAdapt bandit:
+        commands:
+        - /usr/bin/env sh .sqa/script.hilly-lime-flounder.sh
+        container: qc.sec_hilly-heliotrope-impala
+  QC.Sty:
+    repos:
+      github.com/Deltares/FloodAdapt flake8:
+        commands:
+        - /usr/bin/env sh .sqa/script.sleepy-periwinkle-wolverine.sh
+        container: qc.sty_squirrely-cerulean-grouse
+      github.com/Deltares/FloodAdapt jsonlint:
+        commands:
+        - /usr/bin/env sh .sqa/script.shaky-amaranth-reindeer.sh
+        container: qc.sty_lumpy-carmine-molly
+  QC.Ver:
+    repos:
+      github.com/Deltares/FloodAdapt get_git_tags.py:
+        commands:
+        - /usr/bin/env sh .sqa/script.squeaky-apricot-insect.sh
+        container: qc.ver_wheezy-green-barnacle
+timeout: 5400
