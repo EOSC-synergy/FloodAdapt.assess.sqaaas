@@ -1,11 +1,11 @@
 config:
   credentials: []
   project_repos:
-    github.com/Deltares/FloodAdapt:
+    github.com/Deltares-research/FloodAdapt:
       branch: main
-      repo: https://github.com/Deltares/FloodAdapt
+      repo: https://github.com/Deltares-research/FloodAdapt
     github.com/EOSC-synergy/sqaaas-tooling:
-      branch: release/1.7.11
+      branch: main
       repo: https://github.com/EOSC-synergy/sqaaas-tooling
 environment:
   JPL_DOCKERFORCEBUILD: enabled
@@ -13,50 +13,56 @@ environment:
 sqa_criteria:
   QC.Acc:
     repos:
-      github.com/Deltares/FloodAdapt git:
+      github.com/Deltares-research/FloodAdapt git:
         commands:
-        - /usr/bin/env sh .sqa/script.clammy-tan-toucan.sh
-        container: qc.acc_trippy-crimson-ostrich
+        - /usr/bin/env sh .sqa/script.sunny-heliotrope-maltese.sh
+        container: qc.acc_hilly-lemon-ragdoll
   QC.Doc:
     repos:
-      github.com/Deltares/FloodAdapt find_doc_files.py:
+      github.com/Deltares-research/FloodAdapt find_doc_files.py:
         commands:
-        - /usr/bin/env sh .sqa/script.wiggy-charcoal-beetle.sh
-        container: qc.doc_chewy-olivine-meerkat
-      github.com/Deltares/FloodAdapt git:
+        - /usr/bin/env sh .sqa/script.gimpy-chocolate-whippet.sh
+        container: qc.doc_bluesy-alizarin-dolphin
+      github.com/Deltares-research/FloodAdapt git:
         commands:
-        - /usr/bin/env sh .sqa/script.stuffy-sangria-mayfly.sh
-        container: qc.doc_skimpy-bronze-koala
-      github.com/Deltares/FloodAdapt markdownlint:
+        - /usr/bin/env sh .sqa/script.blurry-rose-fowl.sh
+        container: qc.doc_pretty-charcoal-seal
+      github.com/Deltares-research/FloodAdapt markdownlint:
         commands:
-        - /usr/bin/env sh .sqa/script.jumpy-indigo-devil.sh
-        container: qc.doc_clammy-emerald-chinchilla
+        - /usr/bin/env sh .sqa/script.skimpy-xanthic-spider.sh
+        container: qc.doc_sloppy-tomato-hippopotamus
   QC.Lic:
     repos:
-      github.com/Deltares/FloodAdapt licensee:
+      github.com/Deltares-research/FloodAdapt licensee:
         commands:
-        - /usr/bin/env sh .sqa/script.goopy-seashell-budgerigar.sh
-        container: qc.lic_greasy-apricot-vole
+        - /usr/bin/env sh .sqa/script.skimpy-jade-lion.sh
+        container: qc.lic_stuffy-viridian-wasp
   QC.Sec:
     repos:
-      github.com/Deltares/FloodAdapt bandit:
+      github.com/Deltares-research/FloodAdapt bandit:
         commands:
-        - /usr/bin/env sh .sqa/script.hilly-lime-flounder.sh
-        container: qc.sec_hilly-heliotrope-impala
+        - /usr/bin/env sh .sqa/script.sunny-apricot-barnacle.sh
+        container: qc.sec_stinky-blue-frigatebird
   QC.Sty:
     repos:
-      github.com/Deltares/FloodAdapt flake8:
+      github.com/Deltares-research/FloodAdapt flake8:
         commands:
-        - /usr/bin/env sh .sqa/script.sleepy-periwinkle-wolverine.sh
-        container: qc.sty_squirrely-cerulean-grouse
-      github.com/Deltares/FloodAdapt jsonlint:
+        - /usr/bin/env sh .sqa/script.slimy-sepia-hare.sh
+        container: qc.sty_skanky-seashell-boar
+      github.com/Deltares-research/FloodAdapt jsonlint:
         commands:
-        - /usr/bin/env sh .sqa/script.shaky-amaranth-reindeer.sh
-        container: qc.sty_lumpy-carmine-molly
+        - /usr/bin/env sh .sqa/script.foggy-gold-eagle.sh
+        container: qc.sty_flabby-red-fly
+  QC.Uni:
+    repos:
+      github.com/Deltares-research/FloodAdapt pytest:
+        commands:
+        - /usr/bin/env sh .sqa/script.snoopy-auburn-cougar.sh
+        container: qc.uni_pokey-brass-avocet
   QC.Ver:
     repos:
-      github.com/Deltares/FloodAdapt get_git_tags.py:
+      github.com/Deltares-research/FloodAdapt get_git_tags.py:
         commands:
-        - /usr/bin/env sh .sqa/script.squeaky-apricot-insect.sh
-        container: qc.ver_wheezy-green-barnacle
+        - /usr/bin/env sh .sqa/script.ugly-brown-akbash.sh
+        container: qc.ver_bluesy-cerulean-emu
 timeout: 5400
